@@ -8,13 +8,11 @@ namespace SystemFileWatcher.ConfigItems
         public string Name
         {
             get => (string)this["name"];
-            set => this["name"] = value;
         }
         [ConfigurationProperty("value")]
         public string Value
         {
             get => (string)this["value"];
-            set => this["value"] = value;
         }
     }
     class CulturesCollection : ConfigurationElementCollection

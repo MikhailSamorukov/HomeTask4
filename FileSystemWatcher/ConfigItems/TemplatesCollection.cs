@@ -8,28 +8,24 @@ namespace SystemFileWatcher.ConfigItems
         public string Expression
         {
             get => (string)this["regularExpression"];
-            set => this["regularExpression"] = value;
         }
 
         [ConfigurationProperty("destinationFolder")]
         public string DestinationFolder
         {
             get => (string)this["destinationFolder"];
-            set => this["destinationFolder"] = value;
         }
 
         [ConfigurationProperty("addSerialNumber")]
         public bool AddSerialNumber
         {
             get => (bool)this["addSerialNumber"];
-            set => this["addSerialNumber"] = value;
         }
 
         [ConfigurationProperty("addDateTransfer")]
         public bool AddDateTransfer
         {
             get => (bool)this["addDateTransfer"];
-            set => this["addDateTransfer"] = value;
         }
     }
 

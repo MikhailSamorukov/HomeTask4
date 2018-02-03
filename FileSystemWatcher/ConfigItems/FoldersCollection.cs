@@ -8,7 +8,6 @@ namespace SystemFileWatcher.ConfigItems
         public string Path
         {
             get => (string)this["path"];
-            set => this["path"] = value;
         }
     }
 
@@ -18,7 +17,6 @@ namespace SystemFileWatcher.ConfigItems
         public string Path
         {
             get => (string)this["path"];
-            set => this["path"] = value;
         }
     }
 
