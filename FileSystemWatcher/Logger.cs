@@ -1,27 +1,37 @@
 ﻿using SystemFileWatcher.Abstract;
 using System;
-using System.Collections.Generic;
+using log4net;
+using log4net.Config;
 
 namespace SystemFileWatcher
 {
     class Logger : ILogger
     {
-        private readonly List<string> _privateJournal;
+        private static Logger me;
+        private ILog _log = LogManager.GetLogger("LOGGER");
 
-        public IEnumerable<string> Journal => _privateJournal;
-
-        public Logger()
+        private Logger()
         {
-            _privateJournal = new List<string>();
+            XmlConfigurator.Configure();
         }
-        public void AddLog(string information)
+
+        public static Logger getLogger()
         {
-            _privateJournal.Add(information);
+            if (me == null)
+                me = new Logger();
+            return me;
+        }
+
+        public void LogInfo(string information)
+        {
             Console.WriteLine(information);
+            _log.Info(information);
         }
-    }
 
-    class LoggerEventArgs : EventArgs {
-        public string Information { get; set; }
+        public void LogError(string errorDetails)
+        {
+            Console.WriteLine(errorDetails);
+            _log.Error(errorDetails);
+        }
     }
 }

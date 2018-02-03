@@ -4,7 +4,7 @@ namespace SystemFileWatcher.Abstract
 {
     interface ILogger
     {
-        void AddLog(string information);
-        IEnumerable<string> Journal { get; }
+        void LogInfo(string information);
+        void LogError(string errorDetails);
     }
 }

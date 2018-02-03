@@ -104,5 +104,14 @@ namespace SystemFileWatcher.CommonResourses {
                 return ResourceManager.GetString("NewFile", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на select culture key r - Russian, other English.
+        /// </summary>
+        internal static string StartMessage {
+            get {
+                return ResourceManager.GetString("StartMessage", resourceCulture);
+            }
+        }
     }
 }

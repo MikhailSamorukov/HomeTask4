@@ -134,4 +134,7 @@
   <data name="NewFile" xml:space="preserve">
     <value>Найден новый файл</value>
   </data>
+  <data name="StartMessage" xml:space="preserve">
+    <value>Выберите культуру, кнопка к - Русская, остальные Английская</value>
+  </data>
 </root>

@@ -7,7 +7,7 @@ namespace FourthHomeTask
         public static void Main()
         {
             var fw = new FileWatcher();
-            fw.Start();
+            fw.StartWatch();
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using SystemFileWatcher.Abstract;
 using System;
 using System.Globalization;
-using System.Threading;
-using System.Collections.Generic;
-using SystemFileWatcher.ConfigItems;
+using messages = SystemFileWatcher.CommonResourses.Messages;
 
 namespace SystemFileWatcher
 {
@@ -14,21 +12,29 @@ namespace SystemFileWatcher
         {
             _configurator = new Configurator();
         }
-        public CultureInfo CurrentCulture { get; set; }
+
+        public CultureInfo CurrentCulture => CultureInfo.CurrentCulture;
+
+        public string GetLocalDateString(DateTime date) {
+            return date.ToString(CurrentCulture.DateTimeFormat);
+        }
+
         public void SetCulture() {
-            var keyCulture = true;
-            Console.WriteLine("select culture key r - Russian, other English/Выберите культуру, кнопка к - Русская, остальные Английская");
-            while (keyCulture)
+            var isCultureSelected = false;
+            Console.WriteLine(messages.StartMessage);
+            while (!isCultureSelected)
             {
                 if (Console.ReadKey().Key == ConsoleKey.R)
                 {
-                    Thread.CurrentThread.CurrentUICulture = CurrentCulture = new CultureInfo(_configurator.GetCulture("Russian"));
+                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(_configurator.GetCulture("Russian"));
+                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(_configurator.GetCulture("Russian"));
                 }
                 else
                 {
-                    Thread.CurrentThread.CurrentUICulture = CurrentCulture = new CultureInfo(_configurator.GetCulture("English"));
+                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(_configurator.GetCulture("English"));
+                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(_configurator.GetCulture("English"));
                 }
-                keyCulture = false;
+                isCultureSelected = true;
             }
         }
     }

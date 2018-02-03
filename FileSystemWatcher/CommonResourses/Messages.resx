@@ -134,4 +134,7 @@
   <data name="NewFile" xml:space="preserve">
     <value>new file found name</value>
   </data>
+  <data name="StartMessage" xml:space="preserve">
+    <value>select culture key r - Russian, other English</value>
+  </data>
 </root>
