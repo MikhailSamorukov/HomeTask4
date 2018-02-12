@@ -33,11 +33,6 @@ namespace SystemFileWatcher
             _culturer.SetCulture();
             Console.WriteLine($"{messages.Exit}");
             Watch(_folderForListening);
-            Console.CancelKeyPress += Exit;
-            while (true)
-            {
-                Console.ReadKey(true);
-            }
         }
 
         public void OnFileFound(string fullFileName) {
@@ -67,12 +62,6 @@ namespace SystemFileWatcher
         {
             foreach (var item in foldersNames)
                 Watch(item);
-        }
-
-        private void Exit(object sender, ConsoleCancelEventArgs args)
-        {
-            args.Cancel = true;
-            Environment.Exit(0);
         }
     }
 }
